@@ -17,7 +17,7 @@ maintainers = [
 ]
 readme = "README.md"
 requires-python = ">=3.8,<4.0"
-license = "BSD-3-Clause"
+license = { file = "LICENSE" }
 classifiers = [
 	"Operating System :: OS Independent",
 	"Development Status :: 5 - Production/Stable",
