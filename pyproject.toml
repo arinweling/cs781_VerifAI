@@ -16,13 +16,12 @@ maintainers = [
 	{ name = "Edward Kim", email = "ek65@berkeley.edu" }
 ]
 readme = "README.md"
-requires-python = ">=3.8"
-license = { file = "LICENSE" }
+requires-python = ">=3.8,<4.0"
+license = "BSD-3-Clause"
 classifiers = [
 	"Operating System :: OS Independent",
 	"Development Status :: 5 - Production/Stable",
-	"License :: OSI Approved :: BSD License",
-	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3"
 ]
 
 dependencies = [
@@ -42,37 +41,36 @@ dependencies = [
 	"scenic >= 2.1.0b1, <4",
 	"progressbar2 ~= 3.53",
 	"networkx >= 2.6",
-	"statsmodels >= 0.13.2",
+	"statsmodels >= 0.13.2"
 ]
 
 [project.optional-dependencies]
 bayesopt = [
 	"GPy ~= 1.9",
-	"GPyOpt ~= 1.2",
+	"GPyOpt ~= 1.2"
 ]
 parallel = [
-	"ray ~= 1.10",
+	"ray ~= 1.10"
 ]
 examples = [
 	"tensorflow ~= 2.8",
 	"gym >= 0.22",
 	"pyglet ~= 1.5",
 	"opencv-python ~= 4.5",
-	"pillow >= 9.3",
+	"pillow >= 9.3,<10.0",
 	'pyproj ~= 3.0; python_version < "3.10"',
-	'pyproj ~= 3.3; python_version >= "3.10"',
+	'pyproj ~= 3.3; python_version >= "3.10"'
 ]
-test = [	# minimum dependencies for running tests (used for tox virtualenvs)
+test = [ # minimum dependencies for running tests (used for tox virtualenvs)
 	"pytest >= 6.2.5, <8",
-	"pytest-randomly >= 3.2",
+	"pytest-randomly >= 3.2"
 ]
-dev = [
-	"verifai[test]",	# all dependencies from 'test' extra above
+dev = [ # all dependencies from 'test' extra above
 	"tox ~= 3.14",
 	"sphinx >= 4.1.0, <6",
 	"sphinx-rtd-theme >= 0.5.2",
 	"sphinx-tabs ~= 3.4.1",
-	"recommonmark >= 0.6.0",
+	"recommonmark >= 0.6.0"
 ]
 
 [project.urls]

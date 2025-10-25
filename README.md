@@ -1,29 +1,51 @@
-[![Documentation Status](https://readthedocs.org/projects/verifai/badge/?version=latest)](https://verifai.readthedocs.io/en/latest/?badge=latest)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+# VerifAI Environment Wrapper
 
+This repository provides a convenience script and instructions for setting up a reproducible Python environment and running the VerifAI data augmentation example.
 
-# VerifAI
+## Prerequisites
+- Linux (tested on Ubuntu)
+- Python 3.8+ (but < 4.0 as required by VerifAI)
+- Git
+- (Optional) System packages needed for some ML / vision extras (e.g., `build-essential`, `python3-dev`, SDL libs for `pygame`, OpenCV dependencies)
 
-**VerifAI** is a software toolkit for the formal design and analysis of 
-systems that include artificial intelligence (AI) and machine learning (ML)
-components.
-VerifAI particularly seeks to address challenges with applying formal methods to perception and ML components, including those based on neural networks, and to model and analyze system behavior in the presence of environment uncertainty.
-The current version of the toolkit performs intelligent simulation guided by formal models and specifications, enabling a variety of use cases including temporal-logic falsification (bug-finding), model-based systematic fuzz testing, parameter synthesis, counterexample analysis, and data set augmentation. Further details may be found in our [CAV 2019 paper](https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-verifai-cav19.html).
+## Quick Start
+```bash
+# 1. Create and populate the virtual environment
+./setup_venv.sh
 
-Please see the [documentation](https://verifai.readthedocs.io/) for installation instructions, tutorials, publications using VerifAI, and more.
+# 2. Activate the environment
+source .venv/bin/activate
+```
 
-VerifAI was designed and implemented by Tommaso Dreossi, Daniel J. Fremont, Shromona Ghosh, Edward Kim, Hadi Ravanbakhsh, Marcell Vazquez-Chanlatte, and Sanjit A. Seshia. 
+## Running the Data Augmentation Example
+```bash
+# Navigate to the example directory
+cd VerifAI/examples/data_augmentation
 
-If you use VerifAI in your work, please cite our [CAV 2019 paper](https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-verifai-cav19.html) and this website.
+# Terminal 1: start the falsifier
+python falsifier.py
 
-If you have any problems using VerifAI, please submit an issue to the GitHub repository or contact Daniel Fremont at [dfremont@ucsc.edu](mailto:dfremont@ucsc.edu) or Edward Kim at [ek65@berkeley.edu](mailto:ek65@berkeley.edu).
+# Terminal 2: (new shell, activate venv again) run the classifier
+python classifier.py
+```
 
-### Repository Structure
+## Notes
+- The first run of `poetry install -E examples` may take a while because it resolves and installs heavy optional dependencies (TensorFlow, OpenCV, etc.). Subsequent runs use the lock file and are faster.
 
-* _docs_: sources for the [documentation](https://verifai.readthedocs.io/);
+## Project Structure (Local Wrapper)
+```
+.
+├── setup_venv.sh          # Environment + dependency bootstrap
+├── pyproject.toml         # Project + dependency metadata
+├── poetry.lock            # Resolved, locked dependency versions
+├── src/                   # (Placeholder for local Python modules)
+└── VerifAI/               # Cloned upstream VerifAI repository
+```
 
-* _examples_: examples and additional documentation for particular simulators, including CARLA, Webots, X-Plane, and OpenAI Gym;
+## License
+VerifAI itself is BSD-licensed (see its repository). This wrapper repo inherits that licensing intention; add a `LICENSE` file if distributing.
 
-* _src/verifai_: the source for the `verifai` package proper;
+## Citation
+If you publish work using VerifAI, cite the upstream project (see its README / documentation).
 
-* _tests_: the VerifAI test suite.
+---

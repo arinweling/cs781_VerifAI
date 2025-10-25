@@ -43,7 +43,9 @@ classifier_data = DotMap()
 classifier_data.port = PORT
 classifier_data.bufsize = BUFSIZE
 classifier_data.graph_path = './data/car_detector/checkpoint/car-detector-model.meta'
-classifier_data.checkpoint_path = './data/car_detector/checkpoint/'
+classifier_data.checkpoint_path = './data/car_detector/checkpoint'
+# classifier_data.graph_path = './data/adversarial_model/checkpoint/car-detector-model-adversarial.meta'
+# classifier_data.checkpoint_path = './data/adversarial_model/checkpoint'
 
 client_task = Classifier(classifier_data)
 while True:

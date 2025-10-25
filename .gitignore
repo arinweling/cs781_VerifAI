@@ -1,3 +1,6 @@
+.venv
+*.png
+
 # Scenic cache files
 *.snet
 
@@ -120,3 +123,4 @@ venv.bak/
 dmypy.json
 
 *.cproject
+

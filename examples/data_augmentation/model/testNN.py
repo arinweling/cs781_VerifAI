@@ -1,13 +1,21 @@
 import sys, getopt
 import cv2
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
-from model.model import Model
+from model import Model
 import matplotlib.image as mpimg
 
-GRAPH_PATH = './data/checkpoint/car-detector-model.meta'
+# Change these to test different models:
+# Original model:
+# GRAPH_PATH = './data/car_detector/checkpoint/car-detector-model.meta'
+# CHECKPOINT_PATH = './data/car_detector/checkpoint/'
+
+# Adversarially retrained model:
+GRAPH_PATH = './data/checkpoint/car-detector-model-adversarial.meta'
 CHECKPOINT_PATH = './data/checkpoint/'
-IMAGE_PATH = './data/test/test.jpg'
+
+IMAGE_PATH = './counterexample_images/random_0.png'
 
 
 with tf.Session() as sess:
